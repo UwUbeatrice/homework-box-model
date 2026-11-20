@@ -1,0 +1,243 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Box Model Guide</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f3ff;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Main container */
+        .container {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 25px;
+        }
+
+        header {
+            background: #7c3aed;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        header h1 {
+            margin: 0 0 10px;
+        }
+
+        section {
+            background: white;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 12px;
+        }
+
+        h2 {
+            color: #7c3aed;
+            margin-top: 0;
+        }
+
+        /* Task 1: Box sizing card */
+        .example-card {
+            width: 300px;
+            max-width: 100%;
+            padding: 25px;
+            border: 5px solid #7c3aed;
+            margin: 20px auto;
+            background: #eee8ff;
+            box-sizing: border-box;
+        }
+
+        .example-card p {
+            margin-bottom: 0;
+        }
+
+        /* Task 3: Margin collapse example */
+        .collapse-parent {
+            background: #eee8ff;
+            margin-bottom: 30px;
+        }
+
+        .collapse-parent p {
+            background: #d8c8ff;
+            margin-top: 30px;
+            padding: 10px;
+        }
+
+        /* Solution 1: Parent border */
+        .solution-border {
+            border-top: 1px solid transparent;
+            background: #eee8ff;
+        }
+
+        .solution-border p {
+            margin-top: 30px;
+            padding: 10px;
+            background: #d8c8ff;
+        }
+
+        /* Solution 2: flow-root */
+        .solution-flow {
+            display: flow-root;
+            background: #eee8ff;
+        }
+
+        .solution-flow p {
+            margin-top: 30px;
+            padding: 10px;
+            background: #d8c8ff;
+        }
+
+        /* Solution 3: Parent padding */
+        .solution-padding {
+            padding-top: 1px;
+            background: #eee8ff;
+        }
+
+        .solution-padding p {
+            margin-top: 30px;
+            padding: 10px;
+            background: #d8c8ff;
+        }
+
+        .note {
+            background: #f3e8ff;
+            padding: 15px;
+            border-left: 4px solid #7c3aed;
+            margin-top: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #312e81;
+            color: white;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 27px;
+            }
+
+            .container {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>CSS Box Model Guide</h1>
+        <p>Learning about width, spacing and margins</p>
+    </header>
+
+    <main class="container">
+
+        <section>
+            <h2>1. Box Sizing</h2>
+
+            <p>
+                The box-sizing property helps control
+                the total width of an element.
+                With border-box, padding and border
+                are included in the width.
+            </p>
+
+            <div class="example-card">
+                <h3>My Example Card</h3>
+                <p>
+                    This card has a width of 300px,
+                    including padding and border.
+                </p>
+            </div>
+
+            <div class="note">
+                <strong>CSS used:</strong><br>
+                width: 300px;<br>
+                padding: 25px;<br>
+                border: 5px solid;<br>
+                box-sizing: border-box;
+            </div>
+        </section>
+
+        <section>
+            <h2>2. Container</h2>
+
+            <p>
+                A container keeps the content
+                in the center of the page and
+                prevents it from becoming too wide.
+            </p>
+
+            <div class="note">
+                <strong>CSS used:</strong><br>
+                max-width: 1000px;<br>
+                margin: 0 auto;
+            </div>
+        </section>
+
+        <section>
+            <h2>3. Margin Collapse</h2>
+
+            <p>
+                Margin collapse happens when vertical
+                margins of certain elements overlap.
+                Instead of adding together, the larger
+                margin is usually used.
+            </p>
+
+            <h3>Example of margin collapse</h3>
+
+            <div class="collapse-parent">
+                <p>Paragraph with a top margin of 30px.</p>
+            </div>
+
+            <h3>Ways to prevent margin collapse</h3>
+
+            <p><strong>Method 1: Add a border to the parent</strong></p>
+            <div class="solution-border">
+                <p>Here the parent has a small top border.</p>
+            </div>
+
+            <p><strong>Method 2: Use display: flow-root</strong></p>
+            <div class="solution-flow">
+                <p>Here the parent uses display: flow-root.</p>
+            </div>
+
+            <p><strong>Method 3: Add padding to the parent</strong></p>
+            <div class="solution-padding">
+                <p>Here the parent has top padding.</p>
+            </div>
+
+            <div class="note">
+                <strong>My conclusion:</strong>
+                Margin collapse can sometimes change
+                the spacing between elements.
+                Borders, padding and flow-root can
+                help prevent it.
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>CSS Box Model Guide | Homework Project</p>
+    </footer>
+
+</body>
+</html>
